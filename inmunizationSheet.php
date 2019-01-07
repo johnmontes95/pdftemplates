@@ -73,8 +73,8 @@ if(isset($_GET['download'])) {
     $pdf->MultiCell(0, 6, $text, 1, 'L');
     $pdf->Line(25, 80, 180, 80);
     $pdf->Ln(20);
-    $pdf->SetFont('Arial','B',10);
-    $pdf->Cell(15, 7, 'Hola');
+    $pdf->SetFont('Arial','BU',12);
+    $pdf->Cell(15, 7, 'ANTIGEN PREPARATION');
 
     //Second page
     $pdf->AddPage();
