@@ -15,7 +15,7 @@ class PDF extends FPDF
 
     function Header(){
         $this->SetFont('Arial','B',12);
-        $this->Cell(17,10,'INMUNIZATION SHEET',0,0,'L');
+        $this->Cell(17,10,'IMMUNIZATION SHEET',0,0,'L');
         $this->Line(25, 25, 180, 25);
         $this->Ln(25);
     }
@@ -159,7 +159,7 @@ if(isset($_GET['download'])) {
     $pdf->AddPage();
     $text = "ANTIGEN: " . "\n";
     $text .= "CAGE: " .  "hohohohohohohohhohohohohohohohohho" . "\n";
-    $text .= "INMUNIZATION PERIOD: " . "\n";
+    $text .= "IMMUNIZATION PERIOD: " . "\n";
     $text .= "RESPONSIBLE INVESTIGATOR(S): " . "\n";
     $text .= "SPONSOR: " . "\n";
     $text .= "DATE: ";
