@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: john
- * Date: 28/11/2018
- * Time: 22:53
- */
 
 define('FPDF_FONTPATH','font/');
 require('fpdf.php');
@@ -16,6 +10,9 @@ class PDF extends FPDF
     function Header(){
         $this->SetFont('Arial','B',12);
         $this->Cell(17,10,'IMMUNIZATION SHEET',0,0,'L');
+        $x = $this->GetX();
+        $y = $this->GetY();
+        $this->Image("img/logo.png", $x+100, $y+1);
         $this->Line(25, 25, 180, 25);
         $this->Ln(25);
     }
@@ -157,8 +154,8 @@ if(isset($_GET['download'])) {
 
     //First page
     $pdf->AddPage();
-    $text = "ANTIGEN: " . "\n";
-    $text .= "CAGE: " .  "hohohohohohohohhohohohohohohohohho" . "\n";
+    $text = "ANTIGEN: " . "Z01". "\n";
+    $text .= "CAGE: " .  "" . "\n";
     $text .= "IMMUNIZATION PERIOD: " . "\n";
     $text .= "RESPONSIBLE INVESTIGATOR(S): " . "\n";
     $text .= "SPONSOR: " . "\n";
@@ -169,8 +166,8 @@ if(isset($_GET['download'])) {
     $pdf->SetFont('Arial','BU',12);
     $pdf->Cell(15, 7, 'ANTIGEN PREPARATION');
 
-    $text1 = "ANTIGEN: " . "\n";
-    $text1 .= " - Supplied by: " .  "hohohohohohohohhohohohohohohohohho" . "\n";
+    $text1 = "ANTIGEN: " . "Z01" . "\n";
+    $text1 .= " - Supplied by: " .  "" . "\n";
     $text1 .= " - Labeled: " . "\n";
     $text1 .= " - Date delivered: " . "\n";
     $text1 .= " - Format: " . "\n";

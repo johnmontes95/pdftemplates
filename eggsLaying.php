@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: john
- * Date: 28/11/2018
- * Time: 10:47
- */
 
 define('FPDF_FONTPATH','font/');
 require('fpdf.php');
@@ -17,13 +11,23 @@ class PDF extends FPDF
 
     function Header()
     {
-        $this->SetFont('Arial','B',7);
-        $this->Cell(17,8,'Egg Laying/Inmunization Table',0,0,'L');
+        $this->SetFont('Arial','B',8);
+        $this->Cell(30,8,'Egg Laying/Inmunization Table',0,0,'L');
         $this->Cell(35);
-        $this->Cell(17,8,$this->name,0,0,'C');
+        $this->Cell(30,8,$this->name,0,0,'C');
         $this->Cell(15);
         $this->Cell(17,8, 'Inmunization: ' . $this->initDate . '->' . $this->finalDate . '',0,0,'C');
-        $this->Ln(10);
+        $x = $this->GetX();
+        $y = $this->GetY();
+        $this->Text($x + 75, $y+3, "Sponsor: ");
+        $this->SetFont('Arial','',8);
+        $this->Text($x + 90, $y-7, "Experiment: ");
+        $this->Text($x + 90, $y-4, "Q0117: ");
+
+        $this->SetFont('Arial','B',13);
+        $this->Text($x + 90, $y, $this->name);
+        $this->Image("img/logo.png", $x+90, $y+0.7, 40, 5);
+        $this->Ln(7);
     }
 
 
@@ -33,7 +37,7 @@ class PDF extends FPDF
         // Select Arial italic 8
         $this->SetFont('Arial','I',8);
         // Print centered page number
-        $this->Cell(0,10,date('j-m-Y') . '           Processed by the system',0,0,'L');
+        $this->Cell(0,10,date('j-m-Y') . "           Processed by Quail's System",0,0,'L');
     }
 
 
@@ -92,11 +96,11 @@ class PDF extends FPDF
                 if($i > 36){
                     $this->SetX($x);
                     foreach($row as $col)
-                        $this->Cell(14,4.7,$col,1);
+                        $this->Cell(14,4.55,$col,1);
                     $this->Ln();
                 }else{
                     foreach($row as $col)
-                        $this->Cell(14,4.7,$col,1);
+                        $this->Cell(14,4.55,$col,1);
                     $this->Ln();
                 }
 
